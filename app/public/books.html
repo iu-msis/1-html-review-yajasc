@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 <!--Top Header-->
@@ -27,7 +27,7 @@
   <body>
     
     <h1>Books</h1>
-    <table class="table table-bordered table-striped table-hover table-condensed">
+    <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
      <thead>
       <tr>
        <th class="text-center">Title</th>
@@ -95,7 +95,10 @@
 
 
 
-
+    <script src="JS/tablesort.min.js"></script>
+    <script>
+      new Tablesort(document.getElementById('taskTable'));
+    </script>
   </body>
 </html>
   </body>
