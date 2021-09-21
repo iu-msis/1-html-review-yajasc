@@ -2,7 +2,10 @@
 <html>
   <head>
 <html lang="en">
-  <head>
+  <script src="https://unpkg.com/vue@next">
+  </script>
+
+  
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +18,7 @@
 <a href="books.html">|  Books</a>
 <a href="basketball.html">|       Basketball</a>
 </div>
-
+<div id="someApp">
 <h1><p class="text-warning bg-dark text-center">About me</h1>
 </p>
   </head>
@@ -25,16 +28,18 @@
 <img src = "images/jamie.jpg" height = "90px"></a>
 <br>
 <h3>
-  Name:</h3> Jamie Burke 
+  Name:</h3> {{result.name.title}} {{result.name.first}} {{result.name.last}}
 <br> 
-<H3>Country of origin:</H3> USA 
+<H3>Country of origin:</H3> {{result.location.country}}
 <br>
-<H3>Age:</H3> 33 
-<h3>Birthday:</H3> 12/3/1987 
-<H3>Email Address: </H3><a href="mailto:jamie.burke@example.com">jamie.burke@example.com</a></H3>
+<H3>Age:</H3> {{result.dob.age}}
+<h3>Birthday:</H3> {{prettyBirthday}} 
+<H3>Email Address: </H3><a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
+<br>
   <body>
-    <script src="script.js"></script>
+    <script src="JS/random.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
 
-  <script src="JS/tablesort.min.js"></script>
+</div>
   </body>
 </html>
