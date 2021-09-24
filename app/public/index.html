@@ -22,11 +22,12 @@
 <h1><p class="text-warning bg-dark text-center">About me</h1>
 </p>
   </head>
-<a target="_blank" href="images/jamie.jpg">
-<a href = "https://techcrunch.com/2018/09/20/jamie-burke-to-explain-why-you-should-still-bet-on-the-blockchain-at-disrupt-berlin/">
-<!--Source: https://techcrunch.com/2018/09/20/jamie-burke-to-explain-why-you-should-still-bet-on-the-blockchain-at-disrupt-berlin/-->
-<img src = "images/jamie.jpg" height = "90px"></a>
+></a>
 <br>
+<a target="_blank" v-bind:href='result.picture.large'>
+  <img v-bind:src="result.picture.large" class="img-thumbnail imgborder">
+  <!--https://www.google.com/url?sa=i&url=https%3A%2F%2Ftimesofindia.indiatimes.com%2Flife-style%2Frelationships%2Fweb-stories%2Ftraits-of-a-high-quality-man%2Fphotostory%2F83890812.cms&psig=AOvVaw0YRnH_oXvTbgAi_h1CyljU&ust=1630791177141000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCIjf_9jg4_ICFQAAAAAdAAAAABAD-->
+  </a>
 <h3>
   Name:</h3> {{result.name.title}} {{result.name.first}} {{result.name.last}}
 <br> 
@@ -35,6 +36,9 @@
 <H3>Age:</H3> {{result.dob.age}}
 <h3>Birthday:</H3> {{prettyBirthday}} 
 <H3>Email Address: </H3><a v-bind:href="'mailto:' + result.email">{{ result.email }}</a></p>
+<form v-on:submit.prevent="fetchUserData">
+  <button class="btn btn-primary" type="submit">Refresh</button>
+</form>
 <br>
   <body>
     <script src="JS/random.js"></script>
@@ -43,3 +47,4 @@
 </div>
   </body>
 </html>
+
