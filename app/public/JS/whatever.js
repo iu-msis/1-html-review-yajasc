@@ -1,19 +1,24 @@
 const SomeApp = {
     data() {
       return {
-        result: {},
-        list: [5,6,7,8],
-        message: "Waiting ...",
-        bookForm: {}
+        students: [],
+        offerForm: {},
+        offers:[]
       }
     },
-    computed: {
-        prettyBirthday() {
-            return dayjs(this.result.dob.date)
-            .format('D MMM YYYY')
-        }
-    },
+    computed: {},
     methods: {
+        fetchStudentData() {
+            fetch('/api/student/')
+            .then( response => response.json() )
+            .then( (responseJson) => {
+                console.log(responseJson);
+                this.students = responseJson;
+            })
+            .catch( (err) => {
+                console.error(err);
+            })
+        },
         fetchUserData() {
             //Method 1:
             fetch('https://randomuser.me/api/')
@@ -27,14 +32,13 @@ const SomeApp = {
                 console.error(error);
             });
     },
-    postNewOffer(evt) {
-        this.bookForm.bookId = this.selectedBook.id;        
+    postNewOffer(evt) {        
         
-        console.log("Posting!", this.bookForm);
-
+        console.log("Posting!", this.offerForm);
+        alert("Posting!");
         fetch('api/student/create.php', {
             method:'POST',
-            body: JSON.stringify(this.bookForm),
+            body: JSON.stringify(this.offerForm),
             headers: {
               "Content-Type": "application/json; charset=utf-8"
             }
@@ -43,16 +47,17 @@ const SomeApp = {
           .then( json => {
             console.log("Returned from post:", json);
             // TODO: test a result was returned!
-            this.books = json;
+            this.students = json;
             
             // reset the form
-            this.bookForm = {};
+            this.offerForm = {};
           });
       }
   },
     created() {
-        this.fetchUserData();
+        this.fetchStudentData();
     }
+  
   }
   
-  Vue.createApp(SomeApp).mount('#someApp');
+  Vue.createApp(SomeApp).mount('#offerApp');

@@ -2,6 +2,7 @@
 <html>
   <head>
 <html lang="en">
+ 
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -13,7 +14,8 @@
 <a href="index.html">About me</a>
 <a href="books.html">|  Books</a>
 <a href="basketball.html">|       Basketball</a>
-
+<script src="https://unpkg.com/vue@next">
+</script>
 <html>
   <head>
     <meta charset="utf-8">
@@ -25,81 +27,48 @@
   </head>
   
   <body>
-    
+    <div id = 'offerApp'>
     <h1>Books</h1>
-    <table id="taskTable" class="table table-bordered table-striped table-hover table-condensed">
-     <thead>
-      <tr>
-       <th class="text-center">Title</th>
-       <th>Author</th>	
-       <th>Year Published</th>
-       <th>Publisher</th>
-       <th>Page Count</th>
-       <th>MSRP</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="text-center">Useful Delusions</td>	
-        <td class="text-center">Shankar Vedantam</td>	
-        <td class="text-center">2020</td>
-        <td class="text-center">Norton, W. W. & Company,n</td>
-        <td class="text-center">200</td>
-        <td class="text-center">$15</td>
-      </tr>
-      <tr>
-       <td class = "text-center">Hidden Brain</td>
-      <td class = 
-      "text-center">Shankar Vedantam</td>	
-       <td class = 
-      "text-center">2009</td>
-      <td class="text-center">Norton, W. W. & Company,n</td>
-      <td class = "text-center">288</td>
-      <td class = "text-center">$19
-      </tr>
-      <tr>
-        <td class = "text-center">Joyland</td>	
-        <td class = "text-center">Stephen King</td>
-        <td class = "text-center">2013</td>
-        <td class = "text-center">Hard Case Crime</td>
-        <td class = "text-center">290</td>
-        <td class = "text-center">$11.66</td>
-      </tr>
-      <tr>
-        <td class = "text-center">The Colorado Kid</td>	
-        <td class = "text-center">Stephen King</td>	
-        <td class = "text-center">2019</td>
-        <td class = "text-center">Hard Case Crime</td>
-        <td class = "text-center">208</td>
-        <td class = "text-center">$10.36</td>
-      </tr>
-      </tbody>
-
-      </tr>
-      </tfoot>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>author</th>
+          <th>book</th>
+          <th>publisher</th>
+        </tr>
+      </thead>
+        <tbody>
+            <tr v-for="x in students">
+                <td>{{ x.id }}</td>
+                <td>{{ x.author }}</td>
+                <td>{{ x.book }}</td>
+                <td>{{ x.publisher }}</td>
+            </tr>
+        </tbody>
     </table>
-<div class = "header">
-<h1 class = "bbbb">Add Form Book</h1>
-</div>
+    <div class = "header">
+      <h1 class = "bbbb">Add Form Book</h1>
+      </div>
+    <form v-on:submit.prevent="postNewOffer">
+      <label for = "title">Author</label>
+      <input type="text" v-model="offerForm.author" name = "title" id = "title" class = "title"> <br>
+      </class>
+       <label for = "title">Book</label>
+      <input type="text" v-model="offerForm.book" name = "firstname" id = "firstname" class = "name"><br>
+  <label for = "lastname">Publisher<input type="text" v-model="offerForm.publisher" name = "firstname" id = "firstname" class = "name"><br>
+   <input type="Submit" value="submit">
+    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+  </form>
+  </div>
   <main>
     
-      <form>
-      <label for = "title">Title</label>
-      <input type="text" name = "title" id = "title" class = "title"> <br>
-      </class>
-       <label for = "title">Author</label>
-      <input type="text" name = "firstname" id = "firstname" class = "name">
-  <label for = "lastname">Year Published<input type="text" name = "firstname" id = "firstname" class = "name"><br>
-  <label for = "lastname">Publisher<input type="text" name = "firstname" id = "firstname" class = "name"><br>
-   <label for = "lastname">Page Count<input type="text" name = "firstname" id = "firstname" class = "name">
 
-
-
+    <script src="JS/whatever.js"></script>
     <script src="JS/tablesort.min.js"></script>
     <script>
       new Tablesort(document.getElementById('taskTable'));
     </script>
   </body>
-</html>
-  </body>
+
 </html>
