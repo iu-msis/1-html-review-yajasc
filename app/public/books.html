@@ -44,21 +44,29 @@
                 <td>{{ x.author }}</td>
                 <td>{{ x.book }}</td>
                 <td>{{ x.publisher }}</td>
+                <td>
+                  <button type="button" class="btn btn-outline-secondary btn-sm"
+                                v-on:click="selectOfferToEdit(x)">Edit</button>
+                  <button type="button" class="btn btn-outline-secondary btn-sm"
+                                v-on:click="postDeleteOffer(x)">Delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
     <div class = "header">
       <h1 class = "bbbb">Add Form Book</h1>
       </div>
-    <form v-on:submit.prevent="postNewOffer">
+    <form v-on:submit.prevent="postOffer">
       <label for = "title">Author</label>
       <input type="text" v-model="offerForm.author" name = "title" id = "title" class = "title"> <br>
       </class>
        <label for = "title">Book</label>
       <input type="text" v-model="offerForm.book" name = "firstname" id = "firstname" class = "name"><br>
   <label for = "lastname">Publisher<input type="text" v-model="offerForm.publisher" name = "firstname" id = "firstname" class = "name"><br>
-   <input type="Submit" value="submit">
     <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+    <button type="submit" class="btn btn-primary">{{ selectedOffer === null ? "Add " : "Edit " }} Book </button>
+    <button type="button" class="btn btn-outline-secondary" v-if="selectedOffer" v-on:click="resetOfferForm">Cancel</button>
+    <br>
   </form>
   </div>
   <main>
